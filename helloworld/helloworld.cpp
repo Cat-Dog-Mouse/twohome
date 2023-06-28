@@ -4,10 +4,11 @@
 
 #include <iostream>
 #include<stdio.h>
-int max(int a, int b);
-void max_math(int a, int b, int c);
-void charater(char j);
-void level(int a);
+int Max(int a, int b);
+void Comper_math(int a, int b, int c);
+void Charater_Change(char j);
+void Level(int a);
+void Math(int a,char b,int c);
 int main()
 {
     /*
@@ -28,22 +29,25 @@ int main()
     char d;
     int e;
     int i;
-    printf("输入需要转换的字母:\n");
+    /*printf("输入字符:\n");
     scanf("%c", &d);
     printf("输入需要评价的成绩:\n");
     scanf_s("%d", &e);
-    printf("输入三个数字:\n");
+    printf("输入数字:\n");
     scanf_s("%d", &a);
     scanf_s("%d", &b);
     scanf_s("%d", &c);
-    i = max(a, b);
+    i = Max(a, b);
     printf("前两个数值的最大值为%d\n", i);
-    max_math(a, b, c);
-    charater(d);
-    level(e);
+    Comper_math(a, b, c);
+    Charater_Change(d);
+    Level(e);*/
+    printf("列出算式：\n");
+    scanf("%d%c%d", &a,&d,&b);
+    Math(a, d, b);
     return 0;
 }
-int max(int a, int b) {
+int Max(int a, int b) {
     int d;
     if (a > b) {
         d = a;
@@ -53,7 +57,7 @@ int max(int a, int b) {
     }
     return d;
 }
-void max_math(int a, int b,int c) {
+void Comper_math(int a, int b,int c) {
     
     if (a + b > c && a + c > b && b + c > a) {
         printf("三数值可以组成三角形\n");
@@ -62,7 +66,7 @@ void max_math(int a, int b,int c) {
         printf("三数值不可以组成三角形\n");
     }
 }
-void charater(char j) {
+void Charater_Change(char j) {
 
     if (j >='a' && j <= 'z' ) {
         printf("字母为小写字母\n");
@@ -78,7 +82,7 @@ void charater(char j) {
         printf("非法字符\n");
     }
 }
-void level(int k) {
+void Level(int k) {
     char i;
     if (k < 60 && k >= 0) {
         i = 'D';
@@ -97,7 +101,27 @@ void level(int k) {
     }
     printf("\n考试等级为%c", i);
 }
-
+void Math(int a, char b, int c) {
+    printf("算式为(%d%c%d)\n", a, b, c);
+    switch (b)
+    {
+    case '+':
+        printf("%d%c%d=%d", a, b, c, a + c);
+        break;
+    case '-':
+        printf("%d%c%d=%d", a, b, c, a - c);
+        break;
+    case '*':
+        printf("%d%c%d=%d", a, b, c, a * c);
+        break;
+    case '/':
+        printf("%d%c%d=%d", a, b, c, a / c);
+        break;
+    default:
+        printf("\n非法输入");
+        break;
+    }
+}
 
 // 运行程序: Ctrl + F5 或调试 >“开始执行(不调试)”菜单
 // 调试程序: F5 或调试 >“开始调试”菜单
